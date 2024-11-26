@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Procedimentos</title>
+</head>
+<body>
+    <h1>Lista de Procedimentos</h1>
+    <a href="{% url 'cria_procedimento' %}">Adicionar Procedimento</a>
+    <ul>
+        {% for procedimento in procedimentos %}
+            <li>
+                {{ procedimento.nome }} - R$ {{ procedimento.valor }} 
+                
+                <a href="{% url 'edita_procedimento' procedimento.pk %}">Editar</a>
+                <a href="{% url 'exclui_procedimento' procedimento.pk %}">Excluir</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
