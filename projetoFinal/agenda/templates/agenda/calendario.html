@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário</title>
+    <!-- Linkando os arquivos estáticos -->
+    <link href="{% static 'agenda/fullcalendar.min.css' %}" rel="stylesheet">
+    <link href="{% static 'agenda/styles.css' %}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/index.global.min.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="menu">
+            <h3>Menu</h3>
+            <ul>
+                <li>Home</li>
+                <li>Informações</li>
+                <li>Consultas</li>
+                <li>Cirurgias</li>
+            </ul>
+        </div>
+    </div>
+    <div class="main">
+        <div id="calendar"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                events: '/agenda/eventos/',
+            });
+            calendar.render();
+        });
+    </script>
+</body>
+</html>
