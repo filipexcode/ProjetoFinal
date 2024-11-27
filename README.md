@@ -38,7 +38,6 @@ Nossa aplicação desenvolvida em Django tem o intuito facilitar a gestão de ag
 ### Contribuidores
 
 <a href="https://github.com/filipexcode/ProjetoFinal/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=filipexcode/ProjetoFinal"/>
 </a>
 
 
