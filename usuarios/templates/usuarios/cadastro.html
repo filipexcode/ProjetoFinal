@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'usuarios\styles.css' %}">
+    <title>Cadastro</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Crie sua Conta</h2>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <label for="nome_completo">Nome Completo</label>
+                <input type="text" name="nome_completo" placeholder="Escreva seu nome completo" required>
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="Escreva seu Email" required>
+                <label for="password">Senha</label>
+                <input type="password" name="password" placeholder="Escreva sua Senha" required>
+                <button type="submit">Criar conta</button>
+            </form>
+            <p>Já Possui conta? <a href="{% url 'login' %}">Log in</a></p>
+        </div>
+    </div>
+</body>
+</html>

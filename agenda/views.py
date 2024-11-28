@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from .models import Evento
 
+@login_required
 def calendario(request):
     return render(request, 'agenda/calendario.html')
 
