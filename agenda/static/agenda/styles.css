@@ -40,3 +40,11 @@ body {
     max-width: 900px;
     margin: 0 auto;
 }
+
+.logo {
+    width: 80%; /* A largura será 80% da sidebar */
+    display: block; /* Para tratá-la como um bloco */
+    margin: 0 auto 20px auto; /* Centraliza horizontalmente e adiciona espaçamento inferior */
+    border-radius: 10px; /* (Opcional) Adiciona bordas arredondadas */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* (Opcional) Adiciona sombra */
+}
