@@ -14,9 +14,10 @@ def cria_consulta(request):
         form = ConsultaForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('lista_consultas')
+            return redirect('lista_consultas')  # Redirecione após salvar
     else:
         form = ConsultaForm()
+
     return render(request, 'consultas/formulario.html', {'form': form})
 
 def edita_consulta(request, pk):

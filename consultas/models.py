@@ -1,14 +1,14 @@
-from django.utils import timezone
 from django.db import models
+from procedimentos.models import Procedimento  # Importe o modelo de Procedimento
 
 class Consulta(models.Model):
-    paciente = models.CharField(max_length=100)
-    dentista = models.CharField(max_length=100)
-    data_hora = models.DateTimeField(default=timezone.now)
-    procedimento = models.CharField(max_length=200, blank=True, null=True)
-    observacoes = models.TextField(blank=True, null=True)
-
+    paciente = models.CharField(max_length=255)
+    data_hora = models.DateTimeField()
+    procedimento = models.ForeignKey(
+        Procedimento, 
+        on_delete=models.CASCADE, 
+        related_name='consultas'
+    )  # Relacionamento com o modelo Procedimento
 
     def __str__(self):
-        return f"{self.paciente} - {self.data_hora.strftime('%d/%m/%Y %H:%M')}"
-
+        return f"{self.paciente} - {self.data_hora}"
