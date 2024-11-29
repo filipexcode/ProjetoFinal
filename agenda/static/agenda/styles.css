@@ -1,15 +1,18 @@
 body {
     display: flex;
-    font-family: Arial, sans-serif;
+    flex-direction: row;
+    min-height: 100vh; /* Altura mínima igual à altura da janela */
     margin: 0;
-    padding: 0;
 }
 
 .sidebar {
-    width: 20%;
-    background-color: #f8d7da;
+    width: 20%; /* Ajuste conforme necessário */
+    background-color: #f7e3e4;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .menu {
@@ -32,7 +35,7 @@ body {
 }
 
 .main {
-    width: 80%;
+    flex: 1; /* Ocupa o restante do espaço */
     padding: 20px;
 }
 
@@ -42,9 +45,27 @@ body {
 }
 
 .logo {
-    width: 80%; /* A largura será 80% da sidebar */
+    width: 70%; /* A largura será 80% da sidebar */
     display: block; /* Para tratá-la como um bloco */
     margin: 0 auto 20px auto; /* Centraliza horizontalmente e adiciona espaçamento inferior */
     border-radius: 10px; /* (Opcional) Adiciona bordas arredondadas */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* (Opcional) Adiciona sombra */
+}
+
+/* Estilo para botões */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    background-color: #dc3545; /* Cor de fundo */
+    border-radius: 5px; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animações */
+}
+
+.btn:hover {
+    background-color: #c82333; /* Cor ao passar o mouse */
+    transform: translateY(-2px); /* Efeito de leve subida */
 }
