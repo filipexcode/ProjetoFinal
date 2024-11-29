@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmar Exclusão</title>
+    <link href="{% static 'consultas/styleExclusao.css' %}" rel="stylesheet">
 </head>
 <body>
-    <h1>Você tem certeza que deseja excluir o consulta "{{ consulta.nome }}"?</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <button type="submit">Sim, excluir</button>
-    </form>
-    <a href="{% url 'lista_consultas' %}">Cancelar</a> 
+    <div class="main">
+        <div class="form-container">
+            <h1>Confirmar Exclusão</h1>
+            <p>Você tem certeza que deseja excluir o procedimento <strong>"{{ procedimento.nome }}"</strong>?</p>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-delete">Sim, excluir</button>
+                    <a href="{% url 'lista_consultas' %}" class="btn btn-cancel">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

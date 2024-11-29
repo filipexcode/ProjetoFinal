@@ -5,17 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmar Exclusão</title>
-    <link href="{% static 'agenda/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'consultas/styleExclusao.css' %}" rel="stylesheet">
 </head>
 <body>
     <div class="main">
-        <h1>Confirmar Exclusão</h1>
-        <p>Você tem certeza que deseja excluir o procedimento <strong>"{{ procedimento.nome }}"</strong>?</p>
-        <form method="POST">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-delete">Sim, excluir</button>
-        </form>
-        <a href="{% url 'lista_procedimentos' %}" class="btn btn-cancel">Cancelar</a>
+        <div class="form-container"> <!-- Adicionando a classe do estilo -->
+            <h1>Confirmar Exclusão</h1>
+            <p>Você tem certeza que deseja excluir o procedimento <strong>"{{ procedimento.nome }}"</strong>?</p>
+            <div class="form-actions">
+                    <form method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-delete">Sim, excluir</button>
+                </form>
+                <a href="{% url 'lista_procedimentos' %}" class="btn btn-cancel">Cancelar</a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
