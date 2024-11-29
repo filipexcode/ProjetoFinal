@@ -25,6 +25,7 @@ urlpatterns = [
     path('procedimentos/', include('procedimentos.urls')),
     path('usuarios/', include('usuarios.urls')),
     path('consultas/', include('consultas.urls')),
-    path('logout/', LogoutView.as_view(next_page='login'), name='logout'),  # Logout
+    path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
+    path('', include('usuarios.urls')),
 
 ]
