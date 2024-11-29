@@ -27,7 +27,12 @@
                 </li>
             </ul>
         </div>
-        
+        <div class="logout">
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="logout-btn">Sair</button>
+            </form>
+        </div>
     </div>
     <div class="main">
         <div id="calendar"></div>
@@ -143,6 +148,23 @@
             color: black;
             text-decoration: none;
             cursor: pointer;
+        }
+        .logout {
+            margin-top: auto;
+            padding-top: 20px;
+            text-align: center;
+        }
+        .logout-btn {
+            padding: 10px 20px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .logout-btn:hover {
+            background: #c82333;
         }
     </style>
 </body>
