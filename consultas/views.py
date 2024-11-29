@@ -2,7 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Consulta
 from .forms import ConsultaForm
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def lista_consultas(request):
     consultas = Consulta.objects.all()
     return render(request, 'consultas/lista.html', {'consultas': consultas})

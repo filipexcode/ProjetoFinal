@@ -2,7 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Procedimento
 from .forms import ProcedimentoForm
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def lista_procedimentos(request):
     procedimentos = Procedimento.objects.all()
     return render(request, 'procedimentos/lista.html', {'procedimentos': procedimentos})
