@@ -4,14 +4,14 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'consultas/style.css' %}" rel="stylesheet">
     <title>{% if form.instance.pk %}Editar{% else %}Criar{% endif %} Consulta</title>
-    <link rel="stylesheet" href="{% static 'consultas/style.css' %}">
 </head>
 <body>
     <h1>{% if form.instance.pk %}Editar{% else %}Criar{% endif %} Consulta</h1>
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.as_p }} <!-- Exibe o formulário com o campo de lista suspensa -->
         <button type="submit">Salvar</button>
     </form>
 </body>

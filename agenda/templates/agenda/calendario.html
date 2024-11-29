@@ -47,22 +47,50 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                locale: 'pt-br', 
-                buttonText: {
-                    today: 'Hoje',
-                },
-                events: '/agenda/eventos/',
-                dateClick: function(info) { // Corrigido o evento para dateClick
-                    const horarios = gerarHorarios(info.date);
-                    mostrarHorarios(horarios, info.dateStr);
-                }
-            });
-            calendar.render();
-        });
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth', // Exibe o mês por padrão
+        locale: 'pt-br', // Define o idioma como português brasileiro
+        buttonText: {
+            today: 'Hoje',   // Texto para o botão "Hoje"
+            month: 'Mês',    // Texto para a visão "Mês"
+            week: 'Semana',  // Texto para a visão "Semana"
+            day: 'Dia'       // Texto para a visão "Dia"
+        },
+        events: '/agenda/eventos/', // URL do endpoint de eventos
+        displayEventTime: true,    // Mostra os horários nos eventos
+        eventTimeFormat: {         // Formato do horário exibido
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+        },
+        eventBackgroundColor: '#f39c12', // Cor de fundo dos eventos
+        eventBorderColor: '#e67e22',     // Cor da borda
+        eventTextColor: '#ffffff',       // Cor do texto
+
+        // Configuração para alternar para a visão diária ao clicar no dia
+        dateClick: function(info) {
+            calendar.changeView('dayGridDay', info.dateStr); // Muda para visão diária
+        },
+
+        // Configuração do cabeçalho
+        headerToolbar: {
+            left: 'prev,next today',       // Botões de navegação
+            center: 'title',              // Título do calendário
+            right: 'dayGridMonth,dayGridWeek,dayGridDay' // Visões disponíveis
+        },
+    });
+
+    calendar.render();
+});
+
+
+
+
+
+
+
 
         function gerarHorarios(data) {
             const horarios = [];

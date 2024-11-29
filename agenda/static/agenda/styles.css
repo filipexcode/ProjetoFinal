@@ -1,8 +1,22 @@
 body {
     display: flex;
     flex-direction: row;
-    min-height: 100vh; /* Altura mínima igual à altura da janela */
+    min-height: 100vh; 
     margin: 0;
+}
+
+.fc-daygrid-day {
+    height: auto; /* Permite que os dias ajustem a altura automaticamente */
+}
+
+.fc-event {
+    font-size: 14px; /* Ajusta o tamanho do texto */
+    padding: 5px;    /* Espaçamento interno dos eventos */
+    word-wrap: break-word; /* Permite quebrar texto longo */
+}
+
+.fc-dayGrid-view {
+    overflow: visible; /* Garante que eventos longos sejam exibidos */
 }
 
 .sidebar {
@@ -45,7 +59,7 @@ body {
 }
 
 .logo {
-    width: 70%; /* A largura será 80% da sidebar */
+    width: 50%; /* A largura será 80% da sidebar */
     display: block; /* Para tratá-la como um bloco */
     margin: 0 auto 20px auto; /* Centraliza horizontalmente e adiciona espaçamento inferior */
     border-radius: 10px; /* (Opcional) Adiciona bordas arredondadas */
