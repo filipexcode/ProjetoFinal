@@ -37,7 +37,7 @@ def login_usuario(request):
         user = authenticate(request, username=email, password=password)
         if user is not None:
             login(request, user)
-            return redirect('/agenda') 
+            return redirect('/agenda/calendario') 
         else:
             messages.error(request, 'Email ou senha inválidos.')
     return render(request, 'usuarios/login.html')

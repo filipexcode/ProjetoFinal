@@ -15,6 +15,9 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     width: 100%;
+    display: flex;
+    flex-direction: column; /* Adiciona esta linha */
+    align-items: center;    /* Centraliza os itens horizontalmente */
 }
 
 h2 {
@@ -25,6 +28,7 @@ h2 {
 label {
     font-weight: bold;
     margin-top: 10px;
+    align-self: flex-start; /* Alinha os labels à esquerda */
 }
 
 input {
@@ -33,6 +37,7 @@ input {
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
 button {
@@ -52,4 +57,13 @@ button:hover {
 p {
     text-align: center;
     margin-top: 10px;
+}
+
+a {
+    color: #dc3545;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }

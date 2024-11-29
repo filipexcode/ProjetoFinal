@@ -9,15 +9,15 @@
 </head>
 <body>
     <div class="main">
-        <div class="form-container"> <!-- Adicionando a classe do estilo -->
+        <div class="form-container"> <!-- errado -->
             <h1>Confirmar Exclusão</h1>
-            <p>Você tem certeza que deseja excluir o procedimento <strong>"{{ procedimento.nome }}"</strong>?</p>
+            <p>Você tem certeza que deseja excluir o procedimento?</p>
             <div class="form-actions">
-                    <form method="POST">
-                    {% csrf_token %}
+                {% csrf_token %}
+                <form method="POST">
                     <button type="submit" class="btn btn-delete">Sim, excluir</button>
+                    <a href="{% url 'lista_procedimentos' %}" class="btn btn-cancel">Cancelar</a>
                 </form>
-                <a href="{% url 'lista_procedimentos' %}" class="btn btn-cancel">Cancelar</a>
             </div>
         </div>
     </div>
