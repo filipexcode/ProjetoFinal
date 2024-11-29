@@ -9,13 +9,6 @@
 
 <br>
 
-
-## Guia do readme
-- [Descrição](#descrição)
-- [Como utilizar](#como-utilizar)
-- [Tecnologias utilizadas](#tecnologias-utilizadas)
-- [Contribuidores](#contribuidores)
-
 <hr>
 
 ### Descrição
