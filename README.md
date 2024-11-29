@@ -25,20 +25,17 @@ Nossa aplicação desenvolvida em Django tem o intuito facilitar a gestão de ag
 Passos para Execução:
 Instale as dependências:
 bash
-Copiar código
 pip install django
 
 
 Migrações do Banco de Dados:
 bash
-Copiar código
 python manage.py makemigrations
 python manage.py migrate
 
 
 Servidor de Desenvolvimento:
 bash
-Copiar código
 python manage.py runserver
 ○ Acesse: http://127.0.0.1:8000/.
 
