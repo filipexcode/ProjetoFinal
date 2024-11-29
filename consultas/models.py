@@ -11,3 +11,4 @@ class Consulta(models.Model):
 
     def __str__(self):
         return f"{self.paciente} - {self.data_hora.strftime('%d/%m/%Y %H:%M')}"
+

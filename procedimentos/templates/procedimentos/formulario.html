@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if form.instance.pk %}Editar{% else %}Criar{% endif %} Procedimento</title>
+    <link href="{% static 'agenda/styles.css' %}" rel="stylesheet">
 </head>
 <body>
-    <h1>{% if form.instance.pk %}Editar{% else %}Criar{% endif %} Procedimento</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Salvar</button>
-    </form>
+    <div class="main">
+        <h1>{% if form.instance.pk %}Editar{% else %}Criar{% endif %} Procedimento</h1>
+        <form method="POST" class="form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-submit">Salvar</button>
+            <a href="{% url 'lista_procedimentos' %}" class="btn btn-cancel">Cancelar</a>
+        </form>
+    </div>
 </body>
 </html>
