@@ -29,18 +29,27 @@ Nossa aplicação desenvolvida em Django tem o intuito facilitar a gestão de ag
 
 ### Como utilizar
 
+Instale as dependências:
+bash
+Copiar código
+pip install django
+1.
+Migrações do Banco de Dados:
+bash
+Copiar código
+python manage.py makemigrations
+python manage.py migrate
+2.
+Servidor de Desenvolvimento:
+bash
+Copiar código
+python manage.py runserver
+3.
+4. Acessar a aplicação:
+○ Acesse: http://127.0.0.1:8000/.
 
 
-### Tecnologias utilizadas:
 
-
-
-### Contribuidores
-
-<a href="https://github.com/filipexcode/ProjetoFinal/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=filipexcode/ProjetoFinal"/>
-
-</a>
 
 
 
