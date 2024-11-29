@@ -14,13 +14,20 @@
     <div class="sidebar">
         <img src="{% static 'agenda/logo.webp' %}" alt="Logo da Agenda" class="logo">
         <div class="menu">
-            <h3>Bem Vindo:</h3><ul>
-                <li>Página inicial</li>
-                <li>Listar consultas</li>
-                <li>Listar pacientes</li>
-                <li>Procedimentos Existentes</li>
+            <h3>Bem Vindo: {{ user.get_full_name }}</h3>
+            <ul>
+                <li>
+                    <a href="{% url 'calendario' %}" class="btn">Página inicial</a>
+                </li>
+                <li>
+                    <a href="{% url 'lista_consultas' %}" class="btn">Listar consultas</a>
+                </li>
+                <li>
+                    <a href="{% url 'lista_procedimentos' %}" class="btn">Listar procedimentos</a>
+                </li>
             </ul>
         </div>
+        
     </div>
     <div class="main">
         <div id="calendar"></div>

@@ -1,22 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Procedimentos</title>
+    <link href="{% static 'agenda/styles.css' %}" rel="stylesheet">
 </head>
 <body>
-    <h1>Lista de Procedimentos</h1>
-    <a href="{% url 'cria_procedimento' %}">Adicionar Procedimento</a>
-    <ul>
-        {% for procedimento in procedimentos %}
-            <li>
-                {{ procedimento.nome }} - R$ {{ procedimento.valor }} 
-                
-                <a href="{% url 'edita_procedimento' procedimento.pk %}">Editar</a>
-                <a href="{% url 'exclui_procedimento' procedimento.pk %}">Excluir</a>
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="sidebar">
+        <img src="{% static 'agenda/logo.webp' %}" alt="Logo da Agenda" class="logo">
+        <div class="menu">
+            <h3>Bem Vindo:</h3>
+            <ul>
+                <li>
+                    <a href="{% url 'calendario' %}" class="btn">Página inicial</a>
+                </li>
+                <li>
+                    <a href="{% url 'lista_consultas' %}" class="btn">Listar consultas</a>
+                </li>
+                <li>
+                    <a href="{% url 'lista_procedimentos' %}" class="btn">Listar procedimentos</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main">
+        <h1>Lista de Procedimentos</h1>
+        <a href="{% url 'cria_procedimento' %}" class="btn">Adicionar Procedimento</a>
+        <table border="1" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Valor (R$)</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for procedimento in procedimentos %}
+                <tr>
+                    <td>{{ procedimento.nome }}</td>
+                    <td>{{ procedimento.valor }}</td>
+                    <td>
+                        <a href="{% url 'edita_procedimento' procedimento.pk %}" class="btn">Editar</a>
+                        <a href="{% url 'exclui_procedimento' procedimento.pk %}" class="btn">Excluir</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

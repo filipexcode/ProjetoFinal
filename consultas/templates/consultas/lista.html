@@ -1,22 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Consultas</title>
+    <link href="{% static 'agenda/styles.css' %}" rel="stylesheet">
 </head>
 <body>
-    <h1>Lista de Consultas</h1>
-    <a href="{% url 'cria_consulta' %}">Adicionar Consulta</a>
-    <ul>
-        {% for consulta in consultas %}
-            <li>
-                {{ consulta.paciente }} - {{ consulta.data_hora }} 
-                
-                <a href="{% url 'edita_consulta' consulta.pk %}">Editar</a>
-                <a href="{% url 'exclui_consulta' consulta.pk %}">Excluir</a>
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="sidebar">
+        <img src="{% static 'agenda/logo.webp' %}" alt="Logo da Agenda" class="logo">
+        <div class="menu">
+            <h3>Bem Vindo:</h3>
+            <ul>
+                <li>
+                    <a href="{% url 'calendario' %}" class="btn">Página inicial</a>
+                </li>
+                <li>
+                    <a href="{% url 'lista_consultas' %}" class="btn">Listar consultas</a>
+                </li>
+                <li>
+                    <a href="{% url 'lista_procedimentos' %}" class="btn">Listar procedimentos</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main">
+        <h1>Lista de Consultas</h1>
+        <a href="{% url 'cria_consulta' %}" class="btn">Adicionar Consulta</a>
+        <table border="1" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+            <thead>
+                <tr>
+                    <th>Paciente</th>
+                    <th>Data e Hora</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for consulta in consultas %}
+                <tr>
+                    <td>{{ consulta.paciente }}</td>
+                    <td>{{ consulta.data_hora }}</td>
+                    <td>
+                        <a href="{% url 'edita_consulta' consulta.pk %}" class="btn">Editar</a>
+                        <a href="{% url 'exclui_consulta' consulta.pk %}" class="btn">Excluir</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
